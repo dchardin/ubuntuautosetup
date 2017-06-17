@@ -9,17 +9,17 @@ cd /AutoInstallResources
 update_system()
 {
 	apt-get -y update
-	if [ $? -ne 0 ]
+	if [ $? -ne 0 ]; then
 		echo "There was a problem updating. exiting "
 		exit $?
 	fi
 	apt-get -y upgrade
-	if [ $? -ne 0 ]
+	if [ $? -ne 0 ]; then
         	echo "There was a problem updating. exiting "
         	exit $?
 	fi
 	apt-get -y dist-upgrade
-	if [ $? -ne 0 ]
+	if [ $? -ne 0 ]; then
         	echo "There was a problem updating. exiting "
         	exit $?
 	fi
