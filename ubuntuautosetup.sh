@@ -1,12 +1,16 @@
 #!/bin/bash
 
+make_resources_folder()
+{
 mkdir /AutoInstallResources
 cd /AutoInstallResources
+}
 
-#-------------------------------------------------------------------------------
-# Update
-#-------------------------------------------------------------------------------
 
+
+
+update_system()
+{
 apt-get -y update
 
 if [ $? -ne 0 ]
@@ -33,6 +37,7 @@ if [ $? -ne 0 ]
         exit $?
 
 fi
+}
 
 #-------------------------------------------------------------------------------
 # manual setup notes
@@ -41,18 +46,17 @@ fi
 # Open Chrome, Sign in, ensure sync works well
 
 
-
-#-------------------------------------------------------------------------------
-# Google Chrome Install
-#-------------------------------------------------------------------------------
+install_chrome()
+{
 apt-get -y  install wget
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
 apt-get -y install -f 
-#-------------------------------------------------------------------------------
-# apt-get install
-#-------------------------------------------------------------------------------
+}
 
+
+apt_get_install_apps()
+{
 app_packages=( \
 "atop" \
 "autokey-gtk" \
@@ -160,4 +164,17 @@ do
 
 done
 
+}
+
+main()
+{
+
+make_resources_folder
+update_system
+install_chrome
+apt_get_install_apps
+
+}
+
+main
 
