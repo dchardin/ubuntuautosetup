@@ -16,6 +16,7 @@
 # Manually install pencil
 # Set up virtual machines
 # Set up hexchat
+# Manually install pinta
 
 make_resources_folder()
 {
@@ -59,13 +60,6 @@ install_oraclejdk()
 
 	echo "JAVA_HOME="/usr/lib/jvm/java-8-oracle"" >> /etc/environment
 	source /etc/environment
-}
-
-install_pinta()
-{
-add-apt-repository ppa:pinta-maintainers/pinta-stable
-apt-get update
-apt-get -y install pinta
 }
 
 install_opera_developer()
@@ -288,11 +282,11 @@ main()
 	update_system
 	install_chrome
 	install_oraclejdk
-	install_pinta
 	install_opera_developer
 	install_simplescreenrecorder
 	install_ubuntu_make
 	apt_get_install_apps
+	embedded_terminal_setup
 	
 }
 
