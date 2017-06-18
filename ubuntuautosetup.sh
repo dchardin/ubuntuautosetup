@@ -1,5 +1,19 @@
 #!/bin/bash
 
+
+#-------------------------------------------------------------------------------
+# manual setup notes
+#-------------------------------------------------------------------------------
+# Open Chrome, Sign in, ensure sync works well
+#
+# adobe flash (for legacy sites)
+# sudo vi /etc/sources.list
+# uncomment the partner repo
+# save and apt-get update
+# sudo apt-get install adobe-flashplugin
+
+
+
 make_resources_folder()
 {
 mkdir /AutoInstallResources
@@ -63,6 +77,7 @@ apt_get_install_apps()
 		"dos2unix" \
 		"evince" \
 		"expect" \
+		"fbreader" \
 		"git" \
 		"gnupg" \
 		"golang" \
@@ -75,7 +90,10 @@ apt_get_install_apps()
 		"nmap" \
 		"openvpn" \
 		"patch" \
+		"python" \
+		"python2.7-devel" \
 		"python-argparse" \
+		"perl" \
 		"ruby" \
 		"rxvt" \
 		"screen" \
