@@ -38,6 +38,16 @@ install_chrome()
 	apt-get -y install -f 
 }
 
+install_oraclejdk()
+{
+	add-apt-repository ppa:webupd8team/java
+	apt-get update
+	apt-get install oracle-java8-installer
+
+	echo "JAVA_HOME="/usr/lib/jvm/java-8-oracle"" >> /etc/environment
+	source /etc/environment
+}
+
 apt_get_install_apps()
 {
 	app_packages=( \
@@ -95,10 +105,11 @@ apt_get_install_apps()
 
 main()
 {
-	make_resources_folder
-	update_system
-	install_chrome
-	apt_get_install_apps
+#	make_resources_folder
+#	update_system
+#	install_chrome
+#	apt_get_install_apps
+	install_oraclejdk
 }
 
 main
