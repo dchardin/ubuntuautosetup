@@ -17,6 +17,10 @@
 # Set up virtual machines
 # Set up hexchat
 # Manually install pinta
+#
+# Manually configure desktop to deactivate icons.
+# Manually configure desktop to deactivate icons in menus
+
 
 make_resources_folder()
 {
@@ -198,49 +202,36 @@ cat << EOF > /home/donnie/.devilspie/DesktopConsole.ds
 EOF
 
 
-mkdir /home/donnie/.config/roxterm.sourceforge.net
-touch /home/donnie/.config/roxterm.sourceforge.net/Global
-chown donnie /home/donnie/.config/roxterm.sourceforge.net/Global
+mkdir /home/donnie/.config/terminator/
+touch /home/donnie/.config/terminator/config
+chown donnie /home/donnie/.config/terminator/config
 
-cat << EOF > /home/donnie/.config/roxterm.sourceforge.net/Global
-[roxterm options]
-warn_close=3
-only_warn_running=1
-profile=DesktopConsole
-encoding=UTF-8
-prefer_dark_theme=1
+cat << EOF > /home/donnie/.config/terminator/config
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    background_image = None
+    foreground_color = "#f7fb1b"
+  [[devil]]
+    scrollbar_position = hidden
+    palette = "#c403f1:#aa0000:#00aa00:#aa5500:#4169e1:#aa00aa:#00aaaa:#aaaaaa:#c0bebf:#ff5555:#55ff55:#ffff55:#8585da:#ff55ff:#55ffff:#ffffff"
+    exit_action = restart
+    background_darkness = 0.92
+    background_type = transparent
+    background_image = None
+    foreground_color = "#f8ff00"
+    show_titlebar = False
+    background_color = "#0f0c03"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+      
 EOF
-
-#need to insert logic to check if directory already exists
-
-mkdir /home/donnie/.config/roxterm.sourceforge.net/Profiles
-touch /home/donnie/.config/roxterm.sourceforge.net/Profiles/DesktopConsole
-chown donnie /home/donnie/.config/roxterm.sourceforge.net/Profiles/DesktopConsole
-
-cat << EOF > /home/donnie/.config/roxterm.sourceforge.net/Profiles/DesktopConsole
-[roxterm profile]
-font=Terminus 10
-always_show_tabs=0
-hide_menubar=1
-show_add_tab_btn=0
-saturation=0.000000
-win_title=DesktopConsole
-audible_bell=0
-bell_highlights_tab=0
-exit_action=1
-scrollbar_pos=0
-disable_menu_access=1
-disable_menu_shortcuts=1
-disable_tab_menu_shortcuts=1
-show_tab_num=0
-tab_close_btn=0
-tab_pos=4
-colour_scheme=GTK
-width=100
-height=30
-EOF
-
-#Need to add in logic to check if directory already exists
 
 mkdir /home/donnie/.config/autostart/
 cd /home/donnie/.config/autostart/
@@ -262,7 +253,7 @@ chown donnie /home/donnie/.config/autostart/devil.sh
 chmod 2777 /home/donnie/.config/autostart/devil.sh
 cat << EOF > /home/donnie/.config/autostart/devil.sh
 #!/bin/bash
-devilspie & roxterm --profile=DesktopConsole --hide-menubar --title=DesktopConsole --role=borderless
+devilspie & terminator --profile=devil --hide-menubar --title=devil --role=borderless
 EOF
 
 
@@ -278,14 +269,14 @@ EOF
 
 main()
 {
-	make_resources_folder
-	update_system
-	install_chrome
-	install_oraclejdk
-	install_opera_developer
-	install_simplescreenrecorder
-	install_ubuntu_make
-	apt_get_install_apps
+#	make_resources_folder
+#	update_system
+#	install_chrome
+#	install_oraclejdk
+#	install_opera_developer
+#	install_simplescreenrecorder
+#	install_ubuntu_make
+#	apt_get_install_apps
 	embedded_terminal_setup
 	
 }
