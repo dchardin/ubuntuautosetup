@@ -20,6 +20,17 @@
 #
 # Manually configure desktop to deactivate icons.
 # Manually configure desktop to deactivate icons in menus
+#
+
+
+#-------------------------------------------------------------------------------
+# Notes on netbeans setup 
+#-------------------------------------------------------------------------------
+#
+# Activate components one by one
+# Install Darcula theme
+
+
 
 
 make_resources_folder()
@@ -106,6 +117,13 @@ umake ide arduino
 umake ide eclipse-jee
 umake ide sublime-text
 umake ide eclipse-php
+}
+
+npm_install()
+{
+npm install bower
+npm install yarn
+npm install webpack
 }
 
 apt_get_install_apps()
