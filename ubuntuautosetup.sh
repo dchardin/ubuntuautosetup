@@ -118,12 +118,34 @@ umake ide sublime-text
 umake ide eclipse-php
 }
 
-npm_install()
+nodejs()
 {
-npm install bower
-npm install yarn
-npm install webpack
+
+apt-get install nodejs
+apt-get install npm
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+
+npm -g install bower
+npm -g install yarn
+npm -g install webpack
+npm -g install less
+npm -g install grunt
+npm -g install cordova
+npm -g install generator
+npm -g install express-generator 
+
 }
+
+ruby()
+{
+
+apt-get install ruby
+
+gem install sass
+
+}
+
 
 apt_get_install_apps()
 {
@@ -164,7 +186,6 @@ apt_get_install_apps()
 		"python-argparse" \
 		"perl" \
 		"pitivi" \
-		"ruby" \
 		"rxvt" \
 		"screen" \
 		"screenfetch" \
