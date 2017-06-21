@@ -100,7 +100,6 @@ apt-get install ubuntu-make
 
 umake swift
 umake android
-umake nodejs
 umake games stencyl
 umake games superpowers
 umake games twine
@@ -195,95 +194,6 @@ apt_get_install_apps()
 	done
 }
 
-embedded_terminal_setup()
-{
-
-apt-get install xfonts-terminus
-
-mkdir /home/donnie/.devilspie/
-touch /home/donnie/.devilspie/DesktopConsole.ds
-chown donnie /home/donnie/.devilspie/DesktopConsole.ds
-cat << EOF > /home/donnie/.devilspie/DesktopConsole.ds
-(if
-        (matches (window_name) "DesktopConsole")
-        (begin
-                (unpin)
-                (below)
-    	(undecorate)
-                (skip_pager)
-                (center)
-                (skip_tasklist)
-		(geometry "+112+140")
-                (wintype "utility")
-        )
-)
-EOF
-
-
-mkdir /home/donnie/.config/terminator/
-touch /home/donnie/.config/terminator/config
-chown donnie /home/donnie/.config/terminator/config
-
-cat << EOF > /home/donnie/.config/terminator/config
-[global_config]
-[keybindings]
-[profiles]
-  [[default]]
-    background_image = None
-    foreground_color = "#f7fb1b"
-  [[devil]]
-    scrollbar_position = hidden
-    palette = "#c403f1:#aa0000:#00aa00:#aa5500:#4169e1:#aa00aa:#00aaaa:#aaaaaa:#c0bebf:#ff5555:#55ff55:#ffff55:#8585da:#ff55ff:#55ffff:#ffffff"
-    exit_action = restart
-    background_darkness = 0.92
-    background_type = transparent
-    background_image = None
-    foreground_color = "#f8ff00"
-    show_titlebar = False
-    background_color = "#0f0c03"
-    scrollback_infinite = True
-[layouts]
-  [[default]]
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-      profile = default
-      
-EOF
-
-mkdir /home/donnie/.config/autostart/
-cd /home/donnie/.config/autostart/
-touch /home/donnie/.config/autostart/devil.desktop
-chown donnie /home/donnie/.config/autostart/devil.desktop
-cat << EOF > /home/donnie/.config/autostart/devil.desktop
-[Desktop Entry]
-Name=devil
-GenericName=devil
-Comment=Start these up at login
-Exec=/home/donnie/.config/autostart/devil.sh
-Terminal=False
-Type=Application
-X-GNOME-Autostart-enabled=true
-EOF
-
-touch /home/donnie/.config/autostart/devil.sh
-chown donnie /home/donnie/.config/autostart/devil.sh
-chmod 2777 /home/donnie/.config/autostart/devil.sh
-cat << EOF > /home/donnie/.config/autostart/devil.sh
-#!/bin/bash
-devilspie & terminator --profile=devil --hide-menubar --title=devil --role=borderless
-EOF
-
-
-touch /home/donnie/.config/autostart/clearsessions.sh
-chown donnie /home/donnie/.config/autostart/clearsessions.sh
-chmod 2777 /home/donnie/.config/autostart/clearsessions.sh
-cat << EOF > /home/donnie/.config/autostart/clearsessions.sh
-#!/bin/bash
-rm -rf /home/*/.cache/sessions/*
-EOF
-
-}
 
 main()
 {
@@ -295,7 +205,6 @@ main()
 #	install_simplescreenrecorder
 #	install_ubuntu_make
 #	apt_get_install_apps
-	embedded_terminal_setup
 	
 }
 
