@@ -146,6 +146,27 @@ gem install sass
 
 }
 
+php()
+{
+add-apt-repository ppa:ondrej/php
+apt-get update
+apt-get install php7.0 php5.6 php5.6-mysql php-gettext php5.6-mbstring php-mbstring php7.0-mbstring php-xdebug libapache2-mod-php5.6 libapache2-mod-php7.0
+
+#switch from php7 to php5
+
+a2dismod php7.0
+a2enmod php5.6
+service apache2 restart
+update-alternatives --set php /usr/bin/php5.6
+
+#switch from php5 to php7
+
+#a2dismod php5.6 
+#a2enmod php7.0
+#service apache2 restart
+#update-alternatives --set php /usr/bin/php5.6
+}
+
 
 apt_get_install_apps()
 {
