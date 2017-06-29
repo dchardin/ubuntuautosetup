@@ -21,6 +21,10 @@
 # Manually configure desktop to deactivate icons.
 # Manually configure desktop to deactivate icons in menus
 #
+# Switch terminal font to mono
+# Switch terminal preset to solarized dark
+# Activate workspaces
+# Add workspace switcher to panel
 
 
 #-------------------------------------------------------------------------------
@@ -57,6 +61,34 @@ update_system()
         	exit $?
 	fi
 }
+
+install_git()
+{
+	apt-get install git
+	mkdir ~/Gitrepos
+	chmod 2777 ~/Gitrepo
+	
+
+	echo "Please enter your github user id:"
+	read gitUserId
+	git config --global user.name "$gitUserId"
+	echo "Please enter your github email address:"
+	read gitEmail
+	git config --global user.email "$gitEmail"
+	git config --global credential.helper cache
+	git config --global credential.helper 'cache --timeout=3600'
+}
+
+setupFromAppPacksRepo()
+{
+	cd ~/Gitrepos/AppPacksAndMore
+	mkdir /usr/share/xfce4/inactive_backdrops
+	mv /usr/share/xfce4/backdrops/* /usr/share/xfce4/inactive_backdrops
+	cp ~/Gitrepos/AppPacksAndMore/wallpapers/* /usr/share/xfce4/backdrops/
+	cp ~/Gitrepos/AppPacksAndMore/wallpapers/retrowave_80_s_bg_by_rafael_de_jongh-d9wsq5j.png /usr/share/plymouth/themes/xubuntu-logo/wallpaper.png
+
+}
+
 
 
 install_chrome()
