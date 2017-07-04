@@ -99,6 +99,17 @@ install_chrome()
 	apt-get -y install -f 
 }
 
+install_insync()
+{
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
+touch /etc/apt/sources.list.d/insync.list
+cat << EOF > /etc/apt/sources.list.d/insync.list
+deb http://apt.insynchq.com/ubuntu Xenial non-free contrib
+EOF
+apt-get update
+apt-get install insync
+}
+
 install_oraclejdk()
 {
 	add-apt-repository ppa:webupd8team/java
