@@ -25,7 +25,19 @@
 # Switch terminal preset to solarized dark
 # Activate workspaces
 # Add workspace switcher to panel
-
+#
+# Manually install insync-headless
+#
+# Add keyboard shortcuts for screenshots:
+# mkdir /home/donnie/Pictures/Screenshots
+# --open keyboard shortcuts
+# add
+# xfce4-screenshooter 						shift+ctrl+!
+# xfce4-screenshooter -f  					shift+ctrl+@
+# xfce4-screenshooter -r  					shift+ctrl+#
+# xfce4-screenshooter -rc  					shift+ctrl+$
+# xfce4-screenshooter -rs /home/donnie/Pictures/Screenshots	shift+ctrl+%
+#
 
 #-------------------------------------------------------------------------------
 # Notes on netbeans setup 
@@ -97,17 +109,6 @@ install_chrome()
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	sudo dpkg -i --force-depends google-chrome-stable_current_amd64.deb
 	apt-get -y install -f 
-}
-
-install_insync()
-{
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
-touch /etc/apt/sources.list.d/insync.list
-cat << EOF > /etc/apt/sources.list.d/insync.list
-deb http://apt.insynchq.com/ubuntu Xenial non-free contrib
-EOF
-apt-get update
-apt-get install insync
 }
 
 install_oraclejdk()
@@ -244,6 +245,7 @@ apt_get_install_apps()
 		"openvpn" \
 		"p7zip" \
 		"pdfmod" \
+		"pinta" \
 		"patch" \
 		"python" \
 		"python2.7-devel" \
