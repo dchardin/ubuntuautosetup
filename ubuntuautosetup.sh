@@ -98,7 +98,12 @@ setupFromAppPacksRepo()
 	mv /usr/share/xfce4/backdrops/* /usr/share/xfce4/inactive_backdrops
 	cp ~/Gitrepos/AppPacksAndMore/wallpapers/* /usr/share/xfce4/backdrops/
 	cp ~/Gitrepos/AppPacksAndMore/wallpapers/retrowave_80_s_bg_by_rafael_de_jongh-d9wsq5j.png /usr/share/plymouth/themes/xubuntu-logo/wallpaper.png
-
+	cp 136424-terminus-red.tar.gz /usr/share/themes/
+	cd /usr/share/themes
+	tar -xvf 136424-terminus-red.tar.gz
+	echo "remember to set theme and window manager theme to terminus-red"
+	cp -R ACYLS/ /usr/share/icons/
+	sudo gtk-update-icon-cache /usr/share/icons/ACYLS/
 }
 
 
