@@ -6,6 +6,7 @@
 #-------------------------------------------------------------------------------
 # Open Chrome, Sign in, ensure sync works well
 #
+# may need to sudo apt-get install network-manager-openvpn-gnome ???
 # adobe flash (for legacy sites)
 # sudo vi /etc/sources.list
 # uncomment the partner repo
@@ -38,7 +39,17 @@
 # xfce4-screenshooter -rc  					shift+ctrl+$
 # xfce4-screenshooter -rs /home/donnie/Pictures/Screenshots	shift+ctrl+%
 #
-
+# apt-get install build-essential qmlscene qt5-qmake qt5-default qtdeclarative5-dev qml-module-qtquick-controls qtdeclarative5-qtquick2-plugin libqt5qml-graphicaleffects qml-module-qtquick-dialogs qtdeclarative5-localstorage-plugin qtdeclarative5-window-plugin
+#
+#
+# apt-get install autogen automake1.11 faac faad intltool lame libbz2-dev libfaac-dev libfaac0 libfaad-dev libgimp2.0-dev libglib2.0-dev libmp3lame-dev libpackagekit-glib2-dev libtwolame-dev libxvidcore-dev nasm twolame x264 xvid4conf yasm
+#
+# apt-get install -y libgtk2.0-dev libgtk-3-dev libjpeg-dev libtiff-dev libsdl1.2-dev libgstreamer-plugins-base0.10-dev libnotify-dev freeglut3 freeglut3-dev libsm-dev libwebkitgtk-dev libwebkitgtk-3.0-dev 
+#
+#
+# apt-get install -y libxss1 libappindicator1 libappindicator3-1 gconf2 net-tools
+# 
+#
 #-------------------------------------------------------------------------------
 # Notes on netbeans setup 
 #-------------------------------------------------------------------------------
@@ -223,6 +234,9 @@ apt_get_install_apps()
 		"atop" \
 		"autokey-gtk" \
 		"automake" \
+		"ansible" \
+		"exfat-fuse" \
+		"exfat-utils" \
 		"binutils" \
 		"byzanz" \
 		"cargo" \
@@ -231,10 +245,12 @@ apt_get_install_apps()
 		"curl" \
 		"devilspie" \
 		"dkms" \
+		"inkscape" \
 		"dos2unix" \
 		"evince" \
 		"expect" \
 		"fbreader" \
+		"gifsicle" \
 		"gimp" \
 		"gimp-gap" \
 		"git" \
@@ -247,14 +263,36 @@ apt_get_install_apps()
 		"make" \
 		"mercurial" \
 		"nmap" \
+		"gnome-terminal" \
+		"geany" \
+		"ntop" \
+		"elinks" \
+		"mp3splt" \
+		"docker" \
+		"docker.io" \
+		"wkhtmltopdf" \
+		"pandoc" \
+		"texlive" \
+		"texlive-xetex" \
+		"texlive-math-extra" \
+		"unrar" \
+		"grsync" \
+		"photocollage" \
+		"picard" \
+		"tree" \
+		"mlocate" \
 		"openvpn" \
+		"remmina" \
 		"p7zip" \
 		"pdfmod" \
 		"pinta" \
 		"patch" \
+		"python-pip" \
+		"python3-pip" \
 		"python" \
 		"python2.7-devel" \
 		"python-argparse" \
+		"python-tk" \
 		"perl" \
 		"pitivi" \
 		"rxvt" \
@@ -273,6 +311,7 @@ apt_get_install_apps()
 		"devede" \
 		"gpick" \
 		"virtualbox" \
+		"woeusb" \
 	)
 
 
